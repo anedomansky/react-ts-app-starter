@@ -10,7 +10,6 @@ const content = `{
     },
     "author": "",
     "dependencies": {
-      "@types/dotenv": "^8.2.0",
       "@types/node": "12.12.6",
       "@types/react": "^16.9.35",
       "@types/react-dom": "^16.9.8",
