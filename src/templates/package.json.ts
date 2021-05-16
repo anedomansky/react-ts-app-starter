@@ -1,14 +1,14 @@
 const content = `{
     "name": "",
     "version": "1.0.0",
-    "description": "",
+    "description": "A new app.",
     "main": "index.js",
     "scripts": {
       "start": "ts-node ./build/server.ts",
       "test": "jest --collectCoverage",
       "build": "webpack --config ./build/webpack.prod.config.ts"
     },
-    "author": "",
+    "author": "your_name <your_email>",
     "dependencies": {
       "@types/node": "12.12.6",
       "@types/react": "^16.9.35",
@@ -41,7 +41,7 @@ const content = `{
       "babel-jest": "^26.0.1",
       "babel-preset-react-app": "^9.1.2",
       "clean-webpack-plugin": "^3.0.0",
-      "css-loader": "^3.5.3",
+      "css-loader": "^5.2.4",
       "eslint": "^7.1.0",
       "eslint-config-airbnb": "^18.1.0",
       "eslint-plugin-import": "^2.20.2",
@@ -56,8 +56,8 @@ const content = `{
       "identity-obj-proxy": "^3.0.0",
       "jest": "^26.0.1",
       "jest-environment-jsdom-fourteen": "^1.0.1",
-      "node-sass": "^4.14.1",
       "open": "^7.0.4",
+      "sass": "^1.32.13",
       "sass-loader": "^8.0.2",
       "style-loader": "^1.2.1",
       "ts-loader": "^7.0.4",

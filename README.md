@@ -1,6 +1,6 @@
-react-ts-app-starter
+# react-ts-app-starter
 
-# Installation (development)
+## Installation (development)
 
 `npm link`
 `npm unlink`

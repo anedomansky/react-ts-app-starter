@@ -30,18 +30,19 @@ import webpackBase from './templates/build/webpack.base.config';
 import webpackDev from './templates/build/webpack.dev.config';
 import webpackProd from './templates/build/webpack.prod.config';
 
-console.log('Creating all files...');
 console.log(__dirname);
 console.log(process.argv);
 
 const appName = process.argv[2];
+
+console.log(`Creating all files in ${appName}`);
 
 const updatedPackageJSON = JSON.parse(packageJSON);
 updatedPackageJSON.name = appName;
 
 // /
 fs.promises.mkdir(path.dirname(`${appName}/package.json`), { recursive: true })
-    .then(() => fs.promises.writeFile(`${appName}/package.json`, JSON.stringify(updatedPackageJSON)))
+    .then(() => fs.promises.writeFile(`${appName}/package.json`, JSON.stringify(updatedPackageJSON, null, 2)))
     .catch((error) => console.error('An error occurred while copying files:', error));
 
 fs.promises.mkdir(path.dirname(`${appName}/tsconfig.json`), { recursive: true })
@@ -148,6 +149,8 @@ fs.promises.mkdir(path.dirname(`${appName}/build/webpack.prod.config.ts`), { rec
     .then(() => fs.promises.writeFile(`${appName}/build/webpack.prod.config.ts`, webpackProd))
     .catch((error) => console.error('An error occurred while copying files:', error));
 
+console.log('Set up git repository:');
+
 // git init in target location
 exec(`cd ${appName} && git init`, (error, stdout, stderr) => {
     if (error) {
@@ -158,6 +161,8 @@ exec(`cd ${appName} && git init`, (error, stdout, stderr) => {
     console.error(stderr);
 });
 
+console.log('Install all npm packaged:');
+
 // npm install in target location
 exec(`cd ${appName} && npm install`, (error, stdout, stderr) => {
     if (error) {
@@ -167,3 +172,5 @@ exec(`cd ${appName} && npm install`, (error, stdout, stderr) => {
     console.log(stdout);
     console.error(stderr);
 });
+
+console.log('The new app is now available!');
