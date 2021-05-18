@@ -3,21 +3,10 @@
 import { exec } from 'child_process';
 import fs from 'fs';
 import path from 'path';
-import packageJSON from './templates/package.json';
-import tsconfig from './templates/tsconfig.json';
-import assetsTypes from './templates/assets.types';
-import env from './templates/env';
-import eslintConfig from './templates/eslintrc.json';
-import gitattributes from './templates/gitattributes';
-import gitignore from './templates/gitignore';
-import README from './templates/README.md';
-import babelConfig from './templates/babel.config';
-import jestConfig from './templates/jest.config';
 import index from './templates/src/index';
 import indexHTML from './templates/src/index.html';
 import indexSCSS from './templates/src/index.scss';
 import setupTests from './templates/src/setupTests';
-import fileMock from './templates/src/__mocks__/fileMock';
 import app from './templates/src/components/app/App';
 import appSCSS from './templates/src/components/app/App.scss';
 import appTest from './templates/src/components/app/App.test';
@@ -29,6 +18,8 @@ import server from './templates/build/server';
 import webpackBase from './templates/build/webpack.base.config';
 import webpackDev from './templates/build/webpack.dev.config';
 import webpackProd from './templates/build/webpack.prod.config';
+import createRootDirectoryFiles from './helpers/root-directory-files';
+import createMocksDirectoryFiles from './helpers/mocks-directory-files';
 
 console.log(__dirname);
 console.log(process.argv);
@@ -37,49 +28,7 @@ const appName = process.argv[2];
 
 console.log(`Creating all files in ${appName}`);
 
-const updatedPackageJSON = JSON.parse(packageJSON);
-updatedPackageJSON.name = appName;
-
-// /
-fs.promises.mkdir(path.dirname(`${appName}/package.json`), { recursive: true })
-    .then(() => fs.promises.writeFile(`${appName}/package.json`, JSON.stringify(updatedPackageJSON, null, 2)))
-    .catch((error) => console.error('An error occurred while copying files:', error));
-
-fs.promises.mkdir(path.dirname(`${appName}/tsconfig.json`), { recursive: true })
-    .then(() => fs.promises.writeFile(`${appName}/tsconfig.json`, tsconfig))
-    .catch((error) => console.error('An error occurred while copying files:', error));
-
-fs.promises.mkdir(path.dirname(`${appName}/assets.d.ts`), { recursive: true })
-    .then(() => fs.promises.writeFile(`${appName}/assets.d.ts`, assetsTypes))
-    .catch((error) => console.error('An error occurred while copying files:', error));
-
-fs.promises.mkdir(path.dirname(`${appName}/.env`), { recursive: true })
-    .then(() => fs.promises.writeFile(`${appName}/.env`, env))
-    .catch((error) => console.error('An error occurred while copying files:', error));
-
-fs.promises.mkdir(path.dirname(`${appName}/.eslintrc.json`), { recursive: true })
-    .then(() => fs.promises.writeFile(`${appName}/.eslintrc.json`, eslintConfig))
-    .catch((error) => console.error('An error occurred while copying files:', error));
-
-fs.promises.mkdir(path.dirname(`${appName}/.gitattributes`), { recursive: true })
-    .then(() => fs.promises.writeFile(`${appName}/.gitattributes`, gitattributes))
-    .catch((error) => console.error('An error occurred while copying files:', error));
-
-fs.promises.mkdir(path.dirname(`${appName}/.gitignore`), { recursive: true })
-    .then(() => fs.promises.writeFile(`${appName}/.gitignore`, gitignore))
-    .catch((error) => console.error('An error occurred while copying files:', error));
-
-fs.promises.mkdir(path.dirname(`${appName}/README.md`), { recursive: true })
-    .then(() => fs.promises.writeFile(`${appName}/README.md`, README))
-    .catch((error) => console.error('An error occurred while copying files:', error));
-
-fs.promises.mkdir(path.dirname(`${appName}/babel.config.js`), { recursive: true })
-    .then(() => fs.promises.writeFile(`${appName}/babel.config.js`, babelConfig))
-    .catch((error) => console.error('An error occurred while copying files:', error));
-
-fs.promises.mkdir(path.dirname(`${appName}/jest.config.js`), { recursive: true })
-    .then(() => fs.promises.writeFile(`${appName}/jest.config.js`, jestConfig))
-    .catch((error) => console.error('An error occurred while copying files:', error));
+createRootDirectoryFiles(appName).then(() => console.log('All root level files were created successfully!'));
 
 // /src
 fs.promises.mkdir(path.dirname(`${appName}/src/index.ts`), { recursive: true })
@@ -98,10 +47,7 @@ fs.promises.mkdir(path.dirname(`${appName}/src/setupTests.ts`), { recursive: tru
     .then(() => fs.promises.writeFile(`${appName}/src/setupTests.ts`, setupTests))
     .catch((error) => console.error('An error occurred while copying files:', error));
 
-// /src/__mocks__
-fs.promises.mkdir(path.dirname(`${appName}/src/__mocks__/fileMock.js`), { recursive: true })
-    .then(() => fs.promises.writeFile(`${appName}/src/__mocks__/fileMock.js`, fileMock))
-    .catch((error) => console.error('An error occurred while copying files:', error));
+createMocksDirectoryFiles(appName).then(() => console.log('All __mocks__ directory files were created successfully!'));
 
 // /src/components
 fs.promises.mkdir(path.dirname(`${appName}/src/components/app/App.tsx`), { recursive: true })
