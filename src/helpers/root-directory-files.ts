@@ -18,7 +18,7 @@ async function createPackageJSON(appName: string): Promise<void> {
         await fs.promises.mkdir(path.dirname(`${appName}/package.json`), { recursive: true });
         await fs.promises.writeFile(`${appName}/package.json`, JSON.stringify(updatedPackageJSON, null, 2));
     } catch (error) {
-        console.error(error);
+        console.error(`[ERROR] ${error}`);
     }
 }
 
@@ -27,7 +27,7 @@ async function createTsconfigJSON(appName: string): Promise<void> {
         await fs.promises.mkdir(path.dirname(`${appName}/tsconfig.json`), { recursive: true });
         await fs.promises.writeFile(`${appName}/tsconfig.json`, tsconfig);
     } catch (error) {
-        console.error(error);
+        console.error(`[ERROR] ${error}`);
     }
 }
 
@@ -36,7 +36,7 @@ async function createAssetsTypes(appName: string): Promise<void> {
         await fs.promises.mkdir(path.dirname(`${appName}/assets.d.ts`), { recursive: true });
         await fs.promises.writeFile(`${appName}/assets.d.ts`, assetsTypes);
     } catch (error) {
-        console.error(error);
+        console.error(`[ERROR] ${error}`);
     }
 }
 
@@ -45,7 +45,7 @@ async function createEnv(appName: string): Promise<void> {
         await fs.promises.mkdir(path.dirname(`${appName}/.env`), { recursive: true });
         await fs.promises.writeFile(`${appName}/.env`, env);
     } catch (error) {
-        console.error(error);
+        console.error(`[ERROR] ${error}`);
     }
 }
 
@@ -54,7 +54,7 @@ async function createEslintrcJSON(appName: string): Promise<void> {
         await fs.promises.mkdir(path.dirname(`${appName}/.eslintrc.json`), { recursive: true });
         await fs.promises.writeFile(`${appName}/.eslintrc.json`, eslintConfig);
     } catch (error) {
-        console.error(error);
+        console.error(`[ERROR] ${error}`);
     }
 }
 
@@ -63,7 +63,7 @@ async function createGitattributes(appName: string): Promise<void> {
         await fs.promises.mkdir(path.dirname(`${appName}/.gitattributes`), { recursive: true });
         await fs.promises.writeFile(`${appName}/.gitattributes`, gitattributes);
     } catch (error) {
-        console.error(error);
+        console.error(`[ERROR] ${error}`);
     }
 }
 
@@ -72,7 +72,7 @@ async function createGitignore(appName: string): Promise<void> {
         await fs.promises.mkdir(path.dirname(`${appName}/.gitignore`), { recursive: true });
         await fs.promises.writeFile(`${appName}/.gitignore`, gitignore);
     } catch (error) {
-        console.error(error);
+        console.error(`[ERROR] ${error}`);
     }
 }
 
@@ -81,7 +81,7 @@ async function createREADME(appName: string): Promise<void> {
         await fs.promises.mkdir(path.dirname(`${appName}/README.md`), { recursive: true });
         await fs.promises.writeFile(`${appName}/README.md`, README);
     } catch (error) {
-        console.error(error);
+        console.error(`[ERROR] ${error}`);
     }
 }
 
@@ -90,7 +90,7 @@ async function createBabelConfig(appName: string) {
         await fs.promises.mkdir(path.dirname(`${appName}/babel.config.js`), { recursive: true });
         await fs.promises.writeFile(`${appName}/babel.config.js`, babelConfig);
     } catch (error) {
-        console.error(error);
+        console.error(`[ERROR] ${error}`);
     }
 }
 
@@ -99,7 +99,7 @@ async function createJestConfig(appName: string) {
         await fs.promises.mkdir(path.dirname(`${appName}/jest.config.js`), { recursive: true });
         await fs.promises.writeFile(`${appName}/jest.config.js`, jestConfig);
     } catch (error) {
-        console.error(error);
+        console.error(`[ERROR] ${error}`);
     }
 }
 

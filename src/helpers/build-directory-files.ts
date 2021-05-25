@@ -10,7 +10,7 @@ async function createServer(appName: string): Promise<void> {
         await fs.promises.mkdir(path.dirname(`${appName}/build/server.ts`), { recursive: true });
         await fs.promises.writeFile(`${appName}/build/server.ts`, server);
     } catch (error) {
-        console.error(error);
+        console.error(`[ERROR] ${error}`);
     }
 }
 
@@ -19,7 +19,7 @@ async function createWebpackBaseConfig(appName: string): Promise<void> {
         await fs.promises.mkdir(path.dirname(`${appName}/build/webpack.base.config.ts`), { recursive: true });
         await fs.promises.writeFile(`${appName}/build/webpack.base.config.ts`, webpackBase);
     } catch (error) {
-        console.error(error);
+        console.error(`[ERROR] ${error}`);
     }
 }
 
@@ -28,7 +28,7 @@ async function createWebpackDevConfig(appName: string): Promise<void> {
         await fs.promises.mkdir(path.dirname(`${appName}/build/webpack.dev.config.ts`), { recursive: true });
         await fs.promises.writeFile(`${appName}/build/webpack.dev.config.ts`, webpackDev);
     } catch (error) {
-        console.error(error);
+        console.error(`[ERROR] ${error}`);
     }
 }
 
@@ -37,7 +37,7 @@ async function createWebpackProdConfig(appName: string): Promise<void> {
         await fs.promises.mkdir(path.dirname(`${appName}/build/webpack.prod.config.ts`), { recursive: true });
         await fs.promises.writeFile(`${appName}/build/webpack.prod.config.ts`, webpackProd);
     } catch (error) {
-        console.error(error);
+        console.error(`[ERROR] ${error}`);
     }
 }
 

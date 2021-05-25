@@ -7,7 +7,7 @@ async function createMocksDirectoryFiles(appName: string): Promise<void> {
         await fs.promises.mkdir(path.dirname(`${appName}/src/__mocks__/fileMock.js`), { recursive: true });
         await fs.promises.writeFile(`${appName}/src/__mocks__/fileMock.js`, fileMock);
     } catch (error) {
-        console.error(error);
+        console.error(`[ERROR] ${error}`);
     }
 }
 
