@@ -30,6 +30,7 @@ const content = `{
         }
     },
     "rules": {
+        "no-use-before-define": "off",
         "no-console": "off",
         "object-curly-newline": "off",
         "max-len": "off",
@@ -41,6 +42,7 @@ const content = `{
         "import/extensions": "off",
         "import/no-unresolved": "off",
         "import/no-extraneous-dependencies": "off",
+        "@typescript-eslint/no-use-before-define": ["error"],
         "@typescript-eslint/no-non-null-assertion": "off",
         "@typescript-eslint/interface-name-prefix": "off",
         "react/jsx-filename-extension": [

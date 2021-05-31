@@ -1,4 +1,5 @@
 const content = `import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 import webpack from 'webpack';
@@ -41,6 +42,9 @@ const baseConfig: webpack.Configuration = {
             // favicon: path.resolve(__dirname, '../src/assets/icons/favicon.ico'),
         }),
         new FriendlyErrorsWebpackPlugin(),
+        new ForkTsCheckerWebpackPlugin({
+            eslint: true,
+        }),
     ],
     resolve: {
         extensions: ['.ts', '.tsx', '.js'],

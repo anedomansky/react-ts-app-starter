@@ -1,7 +1,6 @@
 const content = `import webpack from 'webpack';
 import merge from 'webpack-merge';
 import path from 'path';
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import baseConfig from './webpack.base.config';
 
@@ -21,9 +20,6 @@ const devConfig: webpack.Configuration = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new ForkTsCheckerWebpackPlugin({
-            eslint: true,
-        }),
         new CleanWebpackPlugin({
             cleanAfterEveryBuildPatterns: ['!index.html'],
         }),
