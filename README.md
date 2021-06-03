@@ -16,9 +16,11 @@ The app is using the following technologies:
 
 - [Jest](https://jestjs.io/)
 
-## Installation
+## Getting Started
 
-`npm i -g react-ts-app-starter`
+1. Install [Node.js](https://nodejs.org/en/).
+
+1. `npm i -g react-ts-app-starter`
 
 ## Usage
 
