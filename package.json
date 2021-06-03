@@ -6,7 +6,6 @@
   "types": "dist/index.d.ts",
   "bin": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "build:dev": "tsc --watch",
     "lint": "eslint src/**/*.ts",
