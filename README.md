@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A CLI app that sets up a app.
+A CLI app that sets up an app.
 
 The app is using the following technologies:
 
