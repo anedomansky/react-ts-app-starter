@@ -4,7 +4,7 @@ const content = `{
   "description": "A new app.",
   "main": "dist/app.bundle.js",
   "scripts": {
-    "start": "ts-node ./build/server.ts",
+    "start": "webpack serve --config ./build/webpack.dev.config.ts",
     "test": "jest --collectCoverage",
     "build": "webpack --config ./build/webpack.prod.config.ts"
   },
