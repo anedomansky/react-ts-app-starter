@@ -7,7 +7,7 @@ import baseConfig from './webpack.base.config';
 const devConfig: webpack.Configuration = {
     devtool: 'eval-source-map',
     entry: {
-        app: ['webpack-hot-middleware/client', './src/index.tsx'],
+        app: './src/index.tsx',
     },
     mode: 'development',
     optimization: {
@@ -19,7 +19,6 @@ const devConfig: webpack.Configuration = {
         publicPath: '/',
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new CleanWebpackPlugin({
             cleanAfterEveryBuildPatterns: ['!index.html'],
         }),
