@@ -11,7 +11,7 @@ const devConfig: webpack.Configuration = {
     },
     mode: 'development',
     optimization: {
-        noEmitOnErrors: true,
+        emitOnErrors: false,
     },
     output: {
         filename: '[name].bundle.js',

@@ -1,4 +1,4 @@
-const content = `module.exports = ''; 
+const content = `module.exports = '';
 `;
 
 export default content;

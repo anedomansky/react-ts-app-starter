@@ -1,5 +1,4 @@
-const content = `import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+const content = `import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 import webpack from 'webpack';
@@ -44,9 +43,10 @@ const baseConfig: webpack.Configuration = {
             title: 'Your App Name',
             template: path.resolve(__dirname, '../src/index.html'),
         }),
-        new FriendlyErrorsWebpackPlugin(),
         new ForkTsCheckerWebpackPlugin({
-            eslint: true,
+            eslint: {
+                files: './src/**/*.{ts,tsx,js,jsx}',
+            },
         }),
     ],
     resolve: {
