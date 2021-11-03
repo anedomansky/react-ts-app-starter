@@ -25,4 +25,8 @@ createComponentsDirectoryFiles(appName).then(() => console.log('[INFO] All compo
 execShellCommand(`cd ${appName} && git init`).then(() => console.log('[INFO] git repository was created')).catch((error) => console.error(`[ERROR] ${error}`));
 
 // npm install in target location
-execShellCommand(`cd ${appName} && npm install`).then(() => console.log('[INFO] npm dependencies installed')).catch((error) => console.error(`[ERROR] ${error}`));
+execShellCommand(`cd ${appName} && npm install`).then(() => console.log('[INFO] npm dependencies installed')).catch((error) => {
+    console.error(`[ERROR] ${error}`);
+    console.log('[INFO] Trying again with --legacy-peer-deps option...');
+    execShellCommand(`cd ${appName} && npm install --legacy-peer-deps`).then(() => console.log('[INFO] npm dependencies installed')).catch((nextError) => console.error(`[ERROR] ${nextError}`));
+});
