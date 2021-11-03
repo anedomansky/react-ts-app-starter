@@ -10,6 +10,7 @@ const baseConfig: webpack.Configuration = {
             {
                 test: /.s?css$/,
                 exclude: /node_modules/,
+                include: path.resolve(__dirname, '../src'),
                 use: [
                     'style-loader',
                     'css-loader',
@@ -19,6 +20,7 @@ const baseConfig: webpack.Configuration = {
             {
                 test: /.tsx?$/,
                 exclude: /node_modules/,
+                include: path.resolve(__dirname, '../src'),
                 loader: 'ts-loader',
                 options: {
                     // disable type checker - use it in fork plugin
@@ -27,6 +29,8 @@ const baseConfig: webpack.Configuration = {
             },
             {
                 test: /.(jpg|png|svg)$/,
+                exclude: /node_modules/,
+                include: path.resolve(__dirname, '../src'),
                 loader: 'file-loader',
                 options: {
                     name: '[name].[hash].[ext]',
@@ -37,9 +41,8 @@ const baseConfig: webpack.Configuration = {
     plugins: [
         new HTMLWebpackPlugin({
             inject: true,
-            title: 'Proma',
+            title: 'Your App Name',
             template: path.resolve(__dirname, '../src/index.html'),
-            // favicon: path.resolve(__dirname, '../src/assets/icons/favicon.ico'),
         }),
         new FriendlyErrorsWebpackPlugin(),
         new ForkTsCheckerWebpackPlugin({
