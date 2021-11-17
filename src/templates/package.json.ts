@@ -40,6 +40,7 @@ const content = `{
     "fork-ts-checker-webpack-plugin": "^6.4.0",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.3.1",
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
     "style-loader": "^3.3.1",

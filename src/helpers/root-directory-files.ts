@@ -8,7 +8,6 @@ import eslintConfig from '../templates/eslintrc.json';
 import gitattributes from '../templates/gitattributes';
 import gitignore from '../templates/gitignore';
 import README from '../templates/README.md';
-import babelConfig from '../templates/babel.config';
 import jestConfig from '../templates/jest.config';
 
 async function createPackageJSON(appName: string): Promise<void> {
@@ -85,15 +84,6 @@ async function createREADME(appName: string): Promise<void> {
     }
 }
 
-async function createBabelConfig(appName: string) {
-    try {
-        await fs.promises.mkdir(path.dirname(`${appName}/babel.config.js`), { recursive: true });
-        await fs.promises.writeFile(`${appName}/babel.config.js`, babelConfig);
-    } catch (error) {
-        console.error(`[ERROR] ${error}`);
-    }
-}
-
 async function createJestConfig(appName: string) {
     try {
         await fs.promises.mkdir(path.dirname(`${appName}/jest.config.js`), { recursive: true });
@@ -112,7 +102,6 @@ async function createRootDirectoryFiles(appName: string): Promise<void> {
     await createGitattributes(appName);
     await createGitignore(appName);
     await createREADME(appName);
-    await createBabelConfig(appName);
     await createJestConfig(appName);
 }
 
