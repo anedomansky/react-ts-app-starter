@@ -13,10 +13,9 @@ const content = `{
     "@types/node": "16.11.6",
     "@types/react": "^17.0.34",
     "@types/react-dom": "^17.0.11",
-    "@types/react-router-dom": "^5.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^5.3.0"
+    "react-router-dom": "^6.0.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.15.0",

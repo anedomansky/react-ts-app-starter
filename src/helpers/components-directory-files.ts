@@ -6,7 +6,7 @@ import appTest from '../templates/src/components/app/App.test';
 import landingPage from '../templates/src/components/landing-page/LandingPage';
 import landingPageSCSS from '../templates/src/components/landing-page/LandingPage.scss';
 import landingPageTest from '../templates/src/components/landing-page/LandingPage.test';
-import routes from '../templates/src/components/routes/Routes';
+import customRoutes from '../templates/src/components/custom-routes/CustomRoutes';
 
 async function createApp(appName: string): Promise<void> {
     try {
@@ -62,10 +62,10 @@ async function createLandingPageTest(appName: string): Promise<void> {
     }
 }
 
-async function createRoutes(appName: string): Promise<void> {
+async function createCustomRoutes(appName: string): Promise<void> {
     try {
-        await fs.promises.mkdir(path.dirname(`${appName}/src/components/routes/Routes.tsx`), { recursive: true });
-        await fs.promises.writeFile(`${appName}/src/components/routes/Routes.tsx`, routes);
+        await fs.promises.mkdir(path.dirname(`${appName}/src/components/custom-routes/CustomRoutes.tsx`), { recursive: true });
+        await fs.promises.writeFile(`${appName}/src/components/custom-routes/CustomRoutes.tsx`, customRoutes);
     } catch (error) {
         console.error(`[ERROR] ${error}`);
     }
@@ -78,7 +78,7 @@ async function createComponentsDirectoryFiles(appName: string): Promise<void> {
     await createLandingPage(appName);
     await createLandingPageSCSS(appName);
     await createLandingPageTest(appName);
-    await createRoutes(appName);
+    await createCustomRoutes(appName);
 }
 
 export default createComponentsDirectoryFiles;

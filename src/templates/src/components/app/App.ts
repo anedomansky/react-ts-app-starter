@@ -1,14 +1,12 @@
 const content = `import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.scss';
-import Routes from '../routes/Routes';
+import CustomRoutes from '../custom-routes/CustomRoutes';
 
 const App: React.FC = () => (
     <div className="content" role="application">
         <BrowserRouter>
-            <main>
-                <Routes />
-            </main>
+            <CustomRoutes />
         </BrowserRouter>
     </div>
 );
