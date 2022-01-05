@@ -62,6 +62,8 @@ const content = `{
         "react/jsx-indent-props": 0,
         "react/no-array-index-key": 0,
         "react/button-has-type": 0,
+        "react-hooks/rules-of-hooks": "error",
+        "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
         "jsx-a11y/label-has-associated-control": [
             "error",
             {
@@ -71,8 +73,7 @@ const content = `{
                 "assert": "htmlFor",
                 "depth": 25
             }
-        ],
-        "react-hooks/rules-of-hooks": "error"
+        ]
     }
 }
 `;
